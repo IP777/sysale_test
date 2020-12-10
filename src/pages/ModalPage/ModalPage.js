@@ -47,7 +47,10 @@ const ModalPage = ({ modalaIsOpen, product }) => {
 					</div>
 
 					<img
-						src={product.imageSrc}
+						src={
+							"https://raw.githubusercontent.com/IP777/sysale_test/master/src/assets" +
+							product.imageSrc
+						}
 						alt="product"
 						className={style.headcard_product}
 					/>

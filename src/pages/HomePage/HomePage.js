@@ -19,7 +19,10 @@ export default function HomePage({
 					<li key={item.id} className={style.item} onClick={swither}>
 						<img
 							value={item.id}
-							src={item.imageSrc}
+							src={
+								"https://raw.githubusercontent.com/IP777/sysale_test/master/src/assets" +
+								item.imageSrc
+							}
 							alt="product"
 							className={style.wrapper}
 						/>
