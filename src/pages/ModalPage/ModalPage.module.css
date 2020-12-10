@@ -31,6 +31,31 @@
 	height: 261px;
 }
 
+.nsBtn {
+	background: linear-gradient(261.65deg, #efbb37 -3.95%, #cf9e1f 109.44%);
+	border: 0;
+	border-radius: 30px;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+	width: 71px;
+	height: 25px;
+	text-align: center;
+}
+
+.nsBtnNot {
+	background: linear-gradient(261.65deg, #efbb37 -3.95%, #cf9e1f 109.44%);
+	border: 0;
+	border-radius: 30px;
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+	width: 71px;
+	height: 26px;
+	text-align: center;
+	opacity: 0;
+}
+
 .cardText {
 	text-align: center;
 }

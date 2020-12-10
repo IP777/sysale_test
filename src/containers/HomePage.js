@@ -1,11 +1,14 @@
 import { connect } from "react-redux";
 import HomePage from "../pages/HomePage/HomePage";
-import { modalIsOpen } from "../redux/actions/modalAction";
-import { fetchProduct } from "../redux/operations/productOperations";
+import { modalIsOpen, selectedProduct } from "../redux/actions/modalAction";
+
+const mapStateToProps = (state) => ({
+	productData: state.fetchData,
+});
 
 const mapDispatchToProps = (dispatch) => ({
 	modalaIsOpen: (bool) => dispatch(modalIsOpen(bool)),
-	fetchProduct,
+	selectedProduct: (data) => dispatch(selectedProduct(data)),
 });
 
-export default connect(null, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

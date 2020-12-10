@@ -1,6 +1,7 @@
 import data from "../../db/fakeData.json";
-import { fetchProductAction } from "../actions/modalAction";
+import { accessToDB, fetchProductAction } from "../actions/modalAction";
 
 export const fetchProduct = () => (dispatch) => {
+	dispatch(accessToDB());
 	dispatch(fetchProductAction(data));
 };

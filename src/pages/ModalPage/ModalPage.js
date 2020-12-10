@@ -1,4 +1,4 @@
-//import React, { useState } from "react";
+import React, { useState } from "react";
 import style from "./ModalPage.module.css";
 
 import NSbutton from "../../component/NSbutton/NSbutton";
@@ -7,7 +7,31 @@ import Select from "../../component/Select/Select";
 import SwitchBtn from "../../component/SwitchBtn/SwitchBtn";
 import Counter from "../../component/Counter/Counter";
 
-const ModalPage = ({ modalaIsOpen }) => {
+const ModalPage = ({ modalaIsOpen, product }) => {
+	const price = product.price;
+	const [count, setCount] = useState(1);
+	const [calc, calcCount] = useState(product.price);
+	const [vol, volCount] = useState(100);
+
+	const increment = () => {
+		const newCount = count + 1;
+		calcCount(newCount * price);
+		setCount(newCount);
+	};
+
+	const decriment = () => {
+		if (count > 1) {
+			const newCount = count - 1;
+			calcCount(newCount * price);
+			setCount(newCount);
+		}
+	};
+
+	const volumePrice = (getVolume) => {
+		volCount(getVolume);
+		calcCount((getVolume / 100) * count * price);
+	};
+
 	const isOpen = (e) => {
 		if (e.target.className.includes("background")) {
 			modalaIsOpen(false);
@@ -18,35 +42,32 @@ const ModalPage = ({ modalaIsOpen }) => {
 		<div className={style.background} onClick={isOpen}>
 			<div className={style.wrapper}>
 				<div className={style.headCard}>
-					<NSbutton
-						name="NEW"
-						fontSize="14px"
-						widthIn="71px"
-						heightIn="26px"
-					/>
+					<div className={product.new ? style.nsBtn : style.nsBtnNot}>
+						NEW
+					</div>
+
 					<img
-						src="/images/image 22.jpg"
+						src={product.imageSrc}
 						alt="product"
 						className={style.headcard_product}
 					/>
 					<SwitchBtn />
 				</div>
 				<span className={style.cardText}>
-					<h3>Шампунь</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-						sed do eiusmod tempor incididunt ut labore et dolore
-						magna aliqua. Ut enim ad minim veniam, quis nostrud
-						exercitation ullamco.
-					</p>
+					<h3>{product.title}</h3>
+					<p>{product.text}</p>
 				</span>
 				<div className={style.centralBlock}>
 					<Select />
-					<span className={style.cost}>200 грн</span>
+					<span className={style.cost}>{calc} грн</span>
 				</div>
-				<CheckboxBlock />
+				<CheckboxBlock volumePrice={volumePrice} />
 				<div className={style.footer}>
-					<Counter />
+					<Counter
+						count={count}
+						increment={increment}
+						decriment={decriment}
+					/>
 					<NSbutton
 						name="Купить"
 						fontSize="18px"

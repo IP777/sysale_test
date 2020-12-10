@@ -4,9 +4,9 @@ import style from "./CheckboxBlock.module.css";
 export default class CheckboxBlock extends Component {
 	state = {
 		checkbox: [
-			{ name: 1, text: "100грн", checked: true },
-			{ name: 2, text: "200грн", checked: false },
-			{ name: 3, text: "300грн", checked: false },
+			{ name: 1, price: 100, checked: true },
+			{ name: 2, price: 200, checked: false },
+			{ name: 3, price: 300, checked: false },
 		],
 		btnChecked: "",
 	};
@@ -22,6 +22,13 @@ export default class CheckboxBlock extends Component {
 			}
 		});
 		this.setState({ checkbox: [...cloneArr], btnChecked: targetName });
+
+		const findPrice = cloneArr.find((item) => {
+			if (item.name.toString() === targetName) {
+				return item.price;
+			}
+		});
+		this.props.volumePrice(findPrice.price);
 	};
 
 	render() {
@@ -29,7 +36,7 @@ export default class CheckboxBlock extends Component {
 		return (
 			<div className={style.wrapper}>
 				<ul className={style.chbxList}>
-					{checkbox.map(({ name, checked, text }) => (
+					{checkbox.map(({ name, checked, price }) => (
 						<li key={name} className={style.chbxItem}>
 							<div
 								name={name}
@@ -41,7 +48,7 @@ export default class CheckboxBlock extends Component {
 								checked={checked}
 								onClick={this.handleChange}
 							/>
-							<span className={style.chbxText}>{text}</span>
+							<span className={style.chbxText}>{price} грн</span>
 						</li>
 					))}
 				</ul>

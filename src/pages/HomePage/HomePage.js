@@ -1,22 +1,30 @@
 import React from "react";
 import style from "./HomePage.module.css";
 
-export default function HomePage({ modalaIsOpen, fetchProduct }) {
-	const swither = () => {
+export default function HomePage({
+	modalaIsOpen,
+	productData,
+	selectedProduct,
+}) {
+	const swither = (e) => {
+		const targetId = e.target.attributes.value.value;
 		modalaIsOpen(true);
-		fetchProduct();
-		console.log(fetchProduct());
+		const product = productData.find((item) => item.id == targetId);
+		selectedProduct(product);
 	};
 	return (
 		<div className="wrapper">
 			<ul className={style.list}>
-				<li className={style.item} onClick={swither}>
-					<img
-						src="/images/image 22.jpg"
-						alt="product"
-						className={style.wrapper}
-					/>
-				</li>
+				{productData.map((item) => (
+					<li key={item.id} className={style.item} onClick={swither}>
+						<img
+							value={item.id}
+							src={item.imageSrc}
+							alt="product"
+							className={style.wrapper}
+						/>
+					</li>
+				))}
 			</ul>
 		</div>
 	);

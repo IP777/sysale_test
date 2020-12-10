@@ -4,7 +4,7 @@ import style from "./Select.module.css";
 const SelectC = () => (
 	<>
 		<div className={style.defaultSelect} />
-		<select className={style.wrapper}>
+		<select defaultValue="цвет" className={style.wrapper}>
 			<option value="цвет" selected disabled hidden>
 				Цвет
 			</option>
