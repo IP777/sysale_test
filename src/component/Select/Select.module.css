@@ -1,0 +1,18 @@
+.wrapper {
+	width: 260px;
+	height: 30px;
+	border-radius: 15px;
+	box-sizing: border-box;
+	margin: 0;
+	border: 0;
+	appearance: none;
+}
+
+.defaultSelect {
+	position: absolute;
+	transform: translate(230px, 10px);
+	width: 12px;
+	height: 7px;
+	background: url("../../assets/images/arrow.jpg");
+	z-index: 100;
+}

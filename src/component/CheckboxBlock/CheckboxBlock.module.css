@@ -1,0 +1,43 @@
+.wrapper {
+	width: 100%;
+}
+
+.chbxList {
+	list-style: none;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+}
+
+.chbxItem {
+	display: flex;
+	margin-bottom: 4px;
+}
+
+.checkbox {
+	width: 20px;
+	height: 20px;
+	background-color: #dedede;
+	border-radius: 3px;
+}
+
+.checkboxChecked {
+	width: 20px;
+	height: 20px;
+	background-color: #dedede;
+	border-radius: 3px;
+}
+
+.checkboxChecked::after {
+	content: "";
+	position: absolute;
+	transform: translate(3px, 3px);
+	width: 14px;
+	height: 14px;
+	background: linear-gradient(261.65deg, #efbb37 -3.95%, #cf9e1f 109.44%);
+	border-radius: 3px;
+}
+
+.chbxText {
+	margin-left: 12px;
+}

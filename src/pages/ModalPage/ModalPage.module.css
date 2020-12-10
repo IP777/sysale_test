@@ -1,0 +1,48 @@
+.background {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	padding-top: 40px;
+	background: rgba(133, 133, 133, 0.349);
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 500px;
+	height: 650px;
+	background-color: #f8fafc;
+	border-radius: 25px;
+	padding: 45px;
+}
+
+.headCard {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.headcard_product {
+	width: 256px;
+	height: 261px;
+}
+
+.cardText {
+	text-align: center;
+}
+.centralBlock {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 30px;
+}
+
+.footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}

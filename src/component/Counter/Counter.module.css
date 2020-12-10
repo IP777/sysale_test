@@ -1,0 +1,20 @@
+.wrapper {
+	text-align: center;
+	padding: 5px;
+	height: 30px;
+	width: 85px;
+	background-color: #e2e9f0;
+	font-size: 20px;
+	border-radius: 20px;
+}
+
+.btn {
+	background-color: rgba(255, 255, 255, 0);
+	border: 0;
+	font-size: 20px;
+}
+
+.count {
+	margin-left: 5px;
+	margin-right: 5px;
+}
