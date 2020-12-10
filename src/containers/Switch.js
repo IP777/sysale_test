@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import ModalPage from "../pages/ModalPage/ModalPage";
+import SwitchBtn from "../component/SwitchBtn/SwitchBtn";
 import {
-	modalIsOpen,
 	addComparisonProduct,
 	removeComparisonProduct,
 } from "../redux/actions/modalAction";
@@ -11,9 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	modalaIsOpen: (bool) => dispatch(modalIsOpen(bool)),
 	addComparisonProduct: (id) => dispatch(addComparisonProduct(id)),
 	removeComparisonProduct: (id) => dispatch(removeComparisonProduct(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchBtn);

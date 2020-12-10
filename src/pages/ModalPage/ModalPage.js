@@ -4,22 +4,29 @@ import style from "./ModalPage.module.css";
 import NSbutton from "../../component/NSbutton/NSbutton";
 import CheckboxBlock from "../../component/CheckboxBlock/CheckboxBlock";
 import Select from "../../component/Select/Select";
-import SwitchBtn from "../../component/SwitchBtn/SwitchBtn";
+import SwitchBtnContainer from "../../containers/Switch";
 import Counter from "../../component/Counter/Counter";
 
-const ModalPage = ({ modalaIsOpen, product }) => {
+const ModalPage = ({
+	modalaIsOpen,
+	product,
+	addComparisonProduct,
+	removeComparisonProduct,
+}) => {
 	const price = product.price;
 	const [count, setCount] = useState(1);
 	const [calc, calcCount] = useState(product.price);
 	const [vol, volCount] = useState(100);
 
 	const increment = () => {
+		addComparisonProduct(product.id);
 		const newCount = count + 1;
 		calcCount(newCount * price);
 		setCount(newCount);
 	};
 
 	const decriment = () => {
+		removeComparisonProduct(product.id);
 		if (count > 1) {
 			const newCount = count - 1;
 			calcCount(newCount * price);
@@ -54,7 +61,7 @@ const ModalPage = ({ modalaIsOpen, product }) => {
 						alt="product"
 						className={style.headcard_product}
 					/>
-					<SwitchBtn />
+					<SwitchBtnContainer />
 				</div>
 				<span className={style.cardText}>
 					<h3>{product.title}</h3>

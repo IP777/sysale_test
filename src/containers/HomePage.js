@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	modalaIsOpen: (bool) => dispatch(modalIsOpen(bool)),
+	modalIsOpen: (bool) => dispatch(modalIsOpen(bool)),
 	selectedProduct: (data) => dispatch(selectedProduct(data)),
 });
 

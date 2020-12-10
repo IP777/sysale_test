@@ -2,13 +2,13 @@ import React from "react";
 import style from "./HomePage.module.css";
 
 export default function HomePage({
-	modalaIsOpen,
+	modalIsOpen,
 	productData,
 	selectedProduct,
 }) {
 	const swither = (e) => {
 		const targetId = e.target.attributes.value.value;
-		modalaIsOpen(true);
+		modalIsOpen(true);
 		const product = productData.find((item) => item.id == targetId);
 		selectedProduct(product);
 	};

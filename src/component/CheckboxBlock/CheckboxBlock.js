@@ -48,7 +48,7 @@ export default class CheckboxBlock extends Component {
 								checked={checked}
 								onClick={this.handleChange}
 							/>
-							<span className={style.chbxText}>{price} грн</span>
+							<span className={style.chbxText}>{price} мл</span>
 						</li>
 					))}
 				</ul>

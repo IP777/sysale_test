@@ -14,15 +14,20 @@ const fetchData = (state = [], { type, payload }) => {
 	switch (type) {
 		case Type.FAKE_FETCH_DATA:
 			return payload.data;
-		default:
-			return state;
-	}
-};
-
-const fetchAccess = (state = false, { type, payload }) => {
-	switch (type) {
-		case Type.ACCESS_TO_DB:
-			return true;
+		case Type.ADD_COMPARISON_PRODUCT:
+			return state.map((product) => {
+				if (product.id === payload.id) {
+					return { ...product, comparison: true };
+				}
+				return product;
+			});
+		case Type.REMOVE_COMPARISON_PRODUCT:
+			return state.map((product) => {
+				if (product.id === payload.id) {
+					return { ...product, comparison: false };
+				}
+				return product;
+			});
 		default:
 			return state;
 	}
@@ -39,7 +44,6 @@ const selected = (state = {}, { type, payload }) => {
 
 export const rootReducer = combineReducers({
 	modalIsOpen: modalReducer,
-	fetchData: fetchData,
-	fetchAccess,
+	fetchData,
 	selected,
 });
